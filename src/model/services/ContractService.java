@@ -7,8 +7,10 @@ import java.time.LocalDate;
 
 public class ContractService {
     //Associação/Composição
-    private OnlinePaymentService onlinePaymentService;
+    //A instanciação será no program principal, gerando uma inversão de controle.
+    private OnlinePaymentService onlinePaymentService;  //Usando a interface,estou fazendo baixo acoplamento, usando o principio solid.
 
+    //Injeção de Dependência no construtor, *vai injetar os métodos da interface aqui na classe*:
     public ContractService(OnlinePaymentService onlinePaymentService) {
         this.onlinePaymentService = onlinePaymentService;
     }
